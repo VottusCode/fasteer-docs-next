@@ -1,10 +1,4 @@
 import React from "react"
-// @ts-ignore
-// import { toHTML } from "discord-markdown"
-// import Html from "./components/html.component"
-// import Formatted from "./components/formatted.component"
-// import Textarea from "./components/textarea.component"
-// import "./assets/js/spoiler";
 import tw from "twin.macro"
 /** @jsx jsx */
 import { css, Global, jsx } from "@emotion/react"
