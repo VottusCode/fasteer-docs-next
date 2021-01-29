@@ -55,7 +55,7 @@ const App = () => {
           </div>
 
           <Footer>
-            2020 &copy; Filip Vottus &ndash; All Rights Reserved
+            2021 &copy; Froneb s.r.o &ndash; All Rights Reserved
             <div tw="mt-1">
               All projects under the{" "}
               <Link href="https://github.com/fasteerjs">@fasteerjs</Link> GitHub
