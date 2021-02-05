@@ -9,27 +9,11 @@ Fastify (depending on the options you pass it) and it creates a Winston instance
 
 <code-group>
 <code-block title="TS / JS (ES6)" active>
-```ts
-import { hookFastify } from "@fasteerjs/fasteer";
-
-const fasteer = hookFastify({
-  controllers: [
-    "./controllers/*.js"
-  ]
-});
-```
+<<< src/code-snippets/getting-started/add-fasteer-to-your-project/quick-start/01/snippet-es6.js
 </code-block>
 
 <code-block title="JS">
-```ts
-const { hookFastify } = require("@fasteerjs/fasteer");
-
-const fasteer = hookFastify({
-  controllers: [
-    "./controllers/*.js"
-  ]
-});
-```
+<<< src/code-snippets/getting-started/add-fasteer-to-your-project/quick-start/01/snippet-js.js
 </code-block>
 </code-group>
 
@@ -39,35 +23,11 @@ If you wish to use an existing instance of Fastify just pass it to `hookFastify`
 
 <code-group>
 <code-block title="TS / JS (ES6)" active>
-```ts
-import { hookFastify } from "@fasteerjs/fasteer";
-import fastify from "fastify";
-
-const app = fastify();
-
-const fasteer = hookFastify({
-  controllers: [
-    "./controllers/*.js"
-  ],
-  port: 4200
-}, app); // <-- passing Fastify instance here
-```
+<<< src/code-snippets/getting-started/add-fasteer-to-your-project/existing-fastify-instance/01/snippet-es6.js
 </code-block>
 
 <code-block title="JS">
-```ts
-const { hookFastify } = require("@fasteerjs/fasteer");
-const fastify = require("fastify");
-
-const app = fastify();
-
-const fasteer = hookFastify({
-  controllers: [
-    "./controllers/*.js"
-  ],
-  port: 4200
-}, app); // <-- passing Fastify instance here
-```
+<<< src/code-snippets/getting-started/add-fasteer-to-your-project/existing-fastify-instance/01/snippet-js.js
 </code-block>
 </code-group>
 
@@ -77,44 +37,10 @@ You can also create the FasteerInstance manually:
 
 <code-group>
 <code-block title="TS / JS (ES6)" active>
-```ts
-import { FasteerInstance } from "@fasteerjs/fasteer"
-import { createLogger } from "winston"
-import fastify from "fastify"
- 
-const app = fastify();
-const logger = createLogger(); // create Winston
-
-const fasteer = new FasteerInstance(app, {
-  config: {
-    controllers: [
-      "./controllers/*.js"
-    ],
-    port: 4200
-  },
-  logger
-});
-```
+<<< src/code-snippets/getting-started/add-fasteer-to-your-project/manually-creating-fasteer-instance/01/snippet-es6.js
 </code-block>
 
 <code-block title="JS">
-```ts
-const { FasteerInstance } = require("@fasteerjs/fasteer")
-const { createLogger } = require("winston")
-const fastify = require("fastify")
- 
-const app = fastify();
-const logger = createLogger(); // create Winston
-
-const fasteer = new FasteerInstance(app, {
-  config: {
-    controllers: [
-      "./controllers/*.js"
-    ],
-    port: 4200
-  },
-  logger
-});
-```
+<<< src/code-snippets/getting-started/add-fasteer-to-your-project/manually-creating-fasteer-instance/01/snippet-js.js
 </code-block>
 </code-group>

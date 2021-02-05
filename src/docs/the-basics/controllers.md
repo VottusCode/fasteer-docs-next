@@ -16,36 +16,15 @@ If you are not using ES6 modules, use the exported `ctrl` function and wrap your
 
 <code-group>
 <code-block title="TS" active>
-```ts
-import { Fasteer } from "@fasteerjs/fasteer"
-
-// Fasteer.FCtrl is a shortcut for Fasteer.FunctionalController
-const HelloController: Fasteer.FCtrl = fastify => {
-  fastify.get("/", (req, res) => res.send("Hello World"))
-}
-
-export default HelloController
-```
+<<< src/code-snippets/the-basics/controllers/defining-controllers/01/snippet-ts.ts
 </code-block>
+
 <code-block title="JS (ES6)">
-```ts
-const HelloController = fastify => {
-  fastify.get("/", (req, res) => res.send("Hello World"))
-}
-
-export default HelloController
-```
+<<< src/code-snippets/the-basics/controllers/defining-controllers/01/snippet-es6.js
 </code-block>
-<code-block title="JS">
-```ts
-const { ctrl } = require("@fasteerjs/fasteer")
 
-// Not using arrow functions to give the controller a name,
-// otherwise Fasteer would name it "(anonymous controller)"
-module.exports = ctrl(function HelloController(fastify) {
-  fastify.get("/", (req, res) => res.send("Hello World"))
-})
-```
+<code-block title="JS">
+<<< src/code-snippets/the-basics/controllers/defining-controllers/01/snippet-js.js
 </code-block>
 </code-group>
 
@@ -58,45 +37,17 @@ If you are not using ES6 modules, pass the route prefix as the second parameter 
 
 
 <code-group>
-
 <code-block title="TS" active>
-```ts
-import { Fasteer } from "@fasteerjs/fasteer"
-
-const HelloController: Fasteer.FCtrl = fastify => {
-    // ...
-}
-
-// Prefixes all routes with /hello
-export const routePrefix = "/hello" 
-
-export default HelloController
-```
+<<< src/code-snippets/the-basics/controllers/route-prefix/01/snippet-ts.ts
 </code-block>
 
 <code-block title="JS (ES6)">
-```ts
-const HelloController = fastify => {
-    // ...
-}
-
-// Prefixes all routes with /hello
-export const routePrefix = "/hello" 
-
-export default HelloController
-```
+<<< src/code-snippets/the-basics/controllers/route-prefix/01/snippet-es6.js
 </code-block>
 
 <code-block title="JS">
-```ts
-const { ctrl } = require("@fasteerjs/fasteer")
-
-module.exports = ctrl(function HelloController(fastify) {
-  fastify.get("/", (req, res) => res.send("Hello World"))
-}, "/hello") // Prefixes all routes with /hello
-```
+<<< src/code-snippets/the-basics/controllers/route-prefix/01/snippet-js.js
 </code-block>
-
 </code-group>
 
 
@@ -104,32 +55,13 @@ module.exports = ctrl(function HelloController(fastify) {
 
 All controllers are registered via the `controllers` property in options passed to the `hookFastify` function, like so:
 
-```ts
-// ... imports
-
-const fasteer = hookFastify({
-  controllers: [
-    './HelloController.ts', // to register HelloController.ts
-    './controllers/*.ts' // to register all .ts files in the controllers folder
-  ]
-});
-```
+<<< src/code-snippets/the-basics/controllers/registering-controllers/01/snippet.js
 
 You can use glob syntax while defining paths for controllers, as Fasteer uses [node-glob](https://npmjs.com/package/glob) under the hood.
 
 You can also pass it the controller function directly, for example:
 
-```ts
-// ... imports
-
-const fasteer = hookFastify({
-  controllers: [
-    async (fastify) => {
-      // ... controller logic here
-    }
-  ]
-})
-```
+<<< src/code-snippets/the-basics/controllers/registering-controllers/02/snippet.js
 
 This can be especially useful if you want to make an abstraction on top of Fasteer.
 
@@ -139,33 +71,11 @@ You can leverage the functionality of Fasteer's controllers without FasteerInsta
 
 <code-group>
 <code-block title="TS / JS (ES6)" active>
-```ts
-import { useControllers } from "@fasteerjs/fasteer"
-import fastify from "fastify"
-
-const app = fastify()
-
-useControllers({
-  controllers: [
-      // ... register controllers the same way you would in hookFastify
-  ],
-}, app)
-```
+<<< src/code-snippets/the-basics/controllers/standalone-usage/01/snippet-es6.js
 </code-block>
 
 <code-block title="JS">
-```ts
-const { useControllers } = require("@fasteerjs/fasteer")
-const fastify = require("fastify")
-
-const app = fastify()
-
-useControllers({
-  controllers: [
-      // ... register controllers the same way you would in hookFastify
-  ],
-}, app)
-```
+<<< src/code-snippets/the-basics/controllers/standalone-usage/01/snippet-js.js
 </code-block>
 </code-group>
 
