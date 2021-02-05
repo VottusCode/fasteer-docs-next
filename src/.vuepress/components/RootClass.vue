@@ -5,19 +5,20 @@
 <script lang="ts">
 import Vue from "vue";
 
-function() {};
-
 export default Vue.extend({
-  data() {
-    return { root: document.getElementById("app") };
-  },
   destroyed() {
-    this.root.classList.add("docs");
-    this.root.classList.remove("landing");
+    const root = document.getElementById("app");
+    if (!root) return;
+
+    root.classList.add("docs");
+    root.classList.remove("landing");
   },
   mounted() {
-    this.root.classList.add("landing");
-    this.root.classList.remove("docs");
+    const root = document.getElementById("app");
+    if (!root) return;
+
+    root.classList.add("landing");
+    root.classList.remove("docs");
   },
 });
 </script>
