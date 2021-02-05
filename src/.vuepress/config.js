@@ -27,7 +27,16 @@ module.exports = {
         rel: "stylesheet",
       },
     ],
+    [
+      "script",
+      {
+        type: "text/javascript",
+        src: "https://viewer.diagrams.net/js/viewer-static.min.js",
+      },
+    ],
   ],
+
+  // <script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
 
   /**
    * Theme configuration, here is the default theme configuration for VuePress.
